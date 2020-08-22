@@ -1,0 +1,72 @@
+-- GAV'RIEL'S GAME --
+
+Premise:
+
+Simple game in which players, designated into separate colour groups, must use their tools to control the gameboard.
+Once a tile is coloured, it is protected for either x turns or x amount of time, before it is reset! Players found
+on enemy tiles at the end of each turn/timecycle are damaged a given amount. Make sure you, or your team are the
+last on the board!
+
+Paradigms:
+
+- No breakable nodes
+- Only use one node register for colored tiles
+- Neutral and ally tiles are safe, enemy tiles are not
+
+
+Gameplay:
+
+The board (variable size) starts out completely neutral. Teams are spread out on the board.
+When the game begins, players can use one of a few tools to perform various actions, usually
+colouring neutral tiles their team color. Players must always move each turn, and at the end of each turn the 
+tiles that were previously rest on are lost permanently.
+
+HUD-Elements:
+
+Pre-Game:
+-Shows game settings.
+
+In-Game:
+-Shows time limit, if any.
+-Number of ally tiles.
+-Number of neutral tiles.
+-Number of own health.
+-Colored to team color.
+
+
+Tools will include:
+- Paintbrush
+- Paintbomb (2 charges)
+- Brito Blaster (several modes)
+- Tsukura (造る) 
+
+
+
+SETTINGTYPES
+
+- Used to denote conditions that the game will use during operation.
+
+-- "setting_SIZE" (Size of the board, always square.)
+
+-- "has_GUARDRAIL" (Boolean value indicating whether the stage is guarded or not.)
+
+-- "spawn_DIST":
+    uniform = "player positions are arranged in a loosely uniform order, generally starting with edges, players
+    are loaded in at a distance of [setting_size] until the 5th player, who is then loaded in at [setting_SIZE]/2
+    and so on. (may rework in future after testing.)"
+
+    randomform = "player positions are randomly selected."
+
+    coliform = "player positions are arranged in tight little clusters around the center of the map"
+
+-- "item_DIST":
+    default = "players start with all default game items, unlimited use."
+    
+    looty = "players start with no extra items, but have the default brush and can pick up items from bags."
+    
+    guerilla = "players start with nothing but the default brush, but also have combat knives. Stabbing an enemy
+    player will harm the player as though they ended a turn on an enemy tile."
+
+    guiacol = "Not even vanilla, players have only brushes and no other items."
+
+    ishihara = "Colourblind mode, or naw."
